@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>SPA</title>
+    </head>
+    <body>
+        SPA
+        <hr/>
+        /api/spainfo 조회응답:<br/>
+        <textarea id="output" style="width:100%;height:300px"></textarea>
+    </body>
+
+<script>
+    window.onload = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/api/spainfo', true);
+        xhr.onload = function() {
+            document.getElementById('output').value = JSON.stringify(JSON.parse(xhr.responseText), null, 2);
+        };
+        xhr.send();
+    };
+</script>
+</html>
